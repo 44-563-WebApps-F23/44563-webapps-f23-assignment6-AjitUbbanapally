@@ -20,6 +20,23 @@
 
 <div id="tipresults" class="mb-4"></div>
 
+<form class="mb-4">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="operation" value="sum" onclick="chooseOp('sum')">
+        <label class="form-check-label">sum</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="operation" value="diff" onclick="chooseOp('diff')">
+        <label class="form-check-label">difference</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="operation" value="mult" onclick="chooseOp('mult')">
+        <label class="form-check-label">product</label>
+    </div>
+</form>
+
+<div id="result-output"></div>
+
 <script>
     function tips() {
         const baseAmount = parseFloat(document.getElementById('baseamount').value);
@@ -32,6 +49,24 @@
         }
         document.getElementById('tipresults').innerHTML = toShow;
     }
+
+    function chooseOp() {
+            const baseAmount = parseFloat(document.getElementById('baseamount').value);
+            const tipPercent = parseFloat(document.getElementById('tippercent').value);
+            const operation = document.querySelector('input[name="operation"]:checked').value;
+
+            let result;
+            if (operation === "sum") {
+                result = baseAmount + tipPercent;
+                document.getElementById('result-output').innerHTML = `the sum of ${baseAmount} and ${tipPercent} is ${result}`;
+            } else if (operation === "diff") {
+                result = baseAmount - tipPercent;
+                document.getElementById('result-output').innerHTML = `the difference of ${baseAmount} and ${tipPercent} is ${result}`;
+            } else if (operation === "mult") {
+                result = tipPercent*baseAmount;
+                document.getElementById('result-output').innerHTML = `the product of ${baseAmount} and ${tipPercent} is ${result}`;
+            }
+        }
 
     </script>
 
