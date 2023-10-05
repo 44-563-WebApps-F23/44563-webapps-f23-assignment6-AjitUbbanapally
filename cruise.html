@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Use check boxes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h2>Ajit U goes on a cruise</h2>
+<h2>Getting input</h2>
+
+<form class="mb-4">
+    <div class="form-group form-check">
+        <label class="form-check-label"><input type="checkbox" checked=true id="checkbox1"  class="form-check-input"> Shares Cabin</label><br>
+        <label class="form-check-label"><input type="checkbox" checked=true id="checkbox2"  class="form-check-input"> Breakfast</label><br>
+        <label class="form-check-label"><input type="checkbox" id="checkbox3"  class="form-check-input"> Pool Pass</label><br>
+    </div>
+
+    <button type="button" onclick="selectCruise()" class="btn btn-primary">Select a cruise</button>
+</form>
+<div id="cruise-results"></div>
+<script>
+    let my_cruise = {};
+    function selectCruise() {
+        my_cruise = {};
+    
+        my_cruise.shared = document.getElementById('checkbox1').checked;
+        my_cruise.breakfast = document.getElementById('checkbox2').checked;
+        my_cruise.pool = document.getElementById('checkbox3').checked;
+    
+        document.getElementById('cruise-results').innerHTML = JSON.stringify(my_cruise);
+    }
+
+    </script>
+    </body>
+    </html>
